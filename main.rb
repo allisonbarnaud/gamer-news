@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'pg'
 require 'httparty'
+require 'bcrypt'
 
 require_relative 'data_access'
 
