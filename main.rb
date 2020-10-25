@@ -35,7 +35,7 @@ get '/' do
     
     results_number = preferences["results_number"]
     sort = 'popularity'
-    news_api_key = '4318d1acd96a49269870f84ba758a44b'
+    news_api_key = '6400348d62a040ba8d3bf438f6c7f1e6'
 
     url1 = "https://newsapi.org/v2/everything?q=#{search_term}&domains=#{domains}&pageSize=#{(results_number.to_i)+6}&sortBy=#{sort}&apiKey=#{news_api_key}"
     url2 = "https://newsapi.org/v2/everything?q=#{search_term}&domains=#{domains}&pageSize=6&sortBy=#{sort}&apiKey=#{news_api_key}"
@@ -43,7 +43,7 @@ get '/' do
     search_term = 'games' #use '%' as a space for multiple words
     domains = 'ign.com,polygon.com,gamespot.com'
     sort = 'popularity'
-    news_api_key = '4318d1acd96a49269870f84ba758a44b'
+    news_api_key = '6400348d62a040ba8d3bf438f6c7f1e6'
 
     url1 = "https://newsapi.org/v2/everything?q=#{search_term}&domains=#{domains}&pageSize=26&sortBy=#{sort}&apiKey=#{news_api_key}"
     url2 = "https://newsapi.org/v2/everything?q=#{search_term}&domains=#{domains}&pageSize=6&sortBy=#{sort}&apiKey=#{news_api_key}"
@@ -62,7 +62,7 @@ get '/search/:console' do
   search_term = params["console"] #use '%' as a space for multiple words
   domains = 'ign.com,polygon.com,gamespot.com'
   sort = 'relevancy'
-  news_api_key = '4318d1acd96a49269870f84ba758a44b'
+  news_api_key = '6400348d62a040ba8d3bf438f6c7f1e6'
 
   url = "https://newsapi.org/v2/everything?qInTitle=#{search_term}&domains=#{domains}&sortBy=#{sort}&language=en&apiKey=#{news_api_key}"
   
@@ -155,7 +155,7 @@ get '/search' do
   search_term = params["searchbox"] #use '%' as a space for multiple words
   domains = 'ign.com,polygon.com,gamespot.com'
   sort = 'relevancy'
-  news_api_key = '4318d1acd96a49269870f84ba758a44b'
+  news_api_key = '6400348d62a040ba8d3bf438f6c7f1e6'
 
   url = "https://newsapi.org/v2/everything?qInTitle=#{search_term}&domains=#{domains}&sortBy=#{sort}&language=en&apiKey=#{news_api_key}"
 

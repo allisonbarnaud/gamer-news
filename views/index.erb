@@ -2,6 +2,7 @@
     <h2><%= current_user()['username'] %>'s news Feed</h2>
 <%end%>
 <div class="container">
+        
         <% headlines["articles"].each do |articles| %>
             <div>
                 <a href="<%= articles["url"] %>"><img class="headers-images" src="<%= articles["urlToImage"] %>">
