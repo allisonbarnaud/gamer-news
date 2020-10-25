@@ -1,0 +1,23 @@
+<h2>edit preferences</h2>
+
+<form class="form" action="/my_page/<%= current_user()['id'] %>" method="post">
+    
+    <input type="hidden" name="_method" value="patch">
+    <div class="inputbox">
+        <label for="">Username</label>
+        <input type="text" name="username" value="<%= user_info["username"] %>">
+    </div>
+    <div class="inputbox">
+        <label for="">E-mail</label>
+        <input type="email" name="email" value="<%= user_info["email"] %>">
+    </div>
+    <div class="inputbox">
+        <label for="">search filters</label>
+        <input type="text" name="filter_term" value ="<%= user_preferences["filter_term"]%>">
+    </div>
+    <div class="inputbox">
+        <label for="">Number of results</label>
+        <input type="text" name="results_number" value ="<%= user_preferences["results_number"]%>">
+        <button>update</button>
+    </div>
+</form>

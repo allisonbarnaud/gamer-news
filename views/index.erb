@@ -1,1 +1,27 @@
-<h1>hello world</h1>
+<% if session[:user_id] != nil %>
+    <h2><%= current_user()['username'] %>'s news Feed</h2>
+<%end%>
+<div class="container">
+        <% headlines["articles"].each do |articles| %>
+            <div>
+                <a href="<%= articles["url"] %>"><img class="headers-images" src="<%= articles["urlToImage"] %>">
+                <h3 class="main-articles-titles"><%=articles["title"]%></h3></a>
+                
+            </div>
+        <% end %>
+</div>
+<% data["articles"].drop(6).each do |articles| %>
+    <div class="articles">
+        <a href="<%= articles["url"] %>"><img src="<%= articles["urlToImage"] %>"></a>
+        <a href="<%= articles["url"] %>"><h3><%= articles["title"] %></h3></a>
+        
+        <p>Description: <%= articles["description"] %></p>
+        <p>Source: <%=articles["source"]["name"]%></p>
+        <p>Author: <%= articles["author"] %></p>
+        <button>Discussion page</button>
+    </div>
+    <br>
+    <br>
+
+<% end %>
+

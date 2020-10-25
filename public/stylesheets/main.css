@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    font-size:25px;
+}
+
+body {
+    background: white;
+}
+
+img {
+   max-width: 800px; 
+}
+
+.headers-images {
+    max-width: 100%;
+}
+
+.container {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    color: black;
+    margin: 0px 100px 70px 100px;
+    padding-bottom: 10px; 
+}
+
+.header-container {
+    background-color: black;
+    color: white;
+    display: grid;
+    grid-template-columns: 2% 10% 5% 67% 16%;
+    padding: 10px 0 10px 0;
+}
+
+.headers {
+    text-align: center;
+    font-size: 25px;
+    margin: 30px;
+}
+
+
+.pc {
+    color: white;
+    background-color: grey;
+    padding: 10px;
+    border-radius: 5px;
+}
+.xbox {
+    color: white;
+    background-color:	#107C10;
+    padding: 10px;
+    border-radius: 5px;
+}
+.playstation {
+    color: white;
+    background-color: #006FCD;
+    padding: 10px;
+    border-radius: 5px;
+}
+.nintendo {
+    color: white;
+    background-color: #e4000f ;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.pc:hover, .xbox:hover, .playstation:hover, .nintendo:hover {
+    color:black;
+}
+
+.articles {
+    display: block;
+    max-width: 800px;
+    margin: auto;
+    border-bottom: 2px solid black;
+}
+
+.main-articles-titles {
+    margin-top: 0px; 
+}
+
+.login-name {
+    padding: 10px 0 0 10px;
+}
+
+.login-image {
+    max-width:40px;
+    padding: 5px 0px 0px 10px;
+}
+
+.search-bar {
+    padding-top: 8px;
+}
+
+.logout {
+    padding: 10px 0 0 0;
+}
+
+.profile-info {
+    margin: 10px 40% 10px 40%;
+    font-size: 20px;
+}
+
+.edit {
+    display: block;
+    font-size: 25px;
+    margin: 10px 0 10px 0;
+    text-align: center;
+}
+
+.delete {
+    margin: 0 46%;
+}
+
+.inputbox {
+    display: inline-block;
+    margin: 50px 50px 0 0;
+}
+
+.form {
+    margin-top: 50px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 25px;
+}

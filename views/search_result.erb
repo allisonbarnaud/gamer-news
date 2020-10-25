@@ -1,0 +1,14 @@
+<h2>Most Relevant:</h2>
+
+<% data["articles"].each do |articles| %>
+    <div class="articles">
+    <a href="<%= articles["url"] %>"><img src="<%= articles["urlToImage"] %>"></a>
+    <h2><%= articles["title"] %></h2>
+    <p>description: <%= articles["description"] %></p>
+    <p>From <%=articles["source"]["name"]%></p>
+    
+    <p>Author: <%= articles["author"] %></p>
+    </div>
+    <br>
+    <br>
+<% end %>

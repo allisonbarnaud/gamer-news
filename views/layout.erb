@@ -4,9 +4,38 @@
   <meta charset="UTF-8">
   <title>Hello World</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <div class="header-container">
+    <% if session[:user_id] != nil %>
+      <a href="/my_page/<%= current_user()['id'] %>"><img class ="login-image" src="/images/profile-logo.png"></a>
+      <p class="login-name">Logged in as: <%= current_user()['username'] %></p>
+      <form class="logout" action="/logout" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>logout</button>
+      </form>
+    <%else%>
+      <a href="/login"><img class ="login-image" src="/images/profile-logo.png"></a>
+      <p></p>
+      <p></p>
+    <%end%>
+    <a href="/"><h1>G-News: News for all things gaming</h1></a>
+    
+    
+    <form class="search-bar" action="/search" method="get">
+      <input type="search" name="searchbox">
+      <button>Search</button>
+    </form>
+  </div>
+  
+  <div class="headers">
+    <a class="playstation" href="/search/playstation">Playstation</a>
+    <a class="xbox"href="/search/xbox">Xbox</a>
+    <a class="pc" href="/search/pc">PC</a>
+    <a class="nintendo" href="/search/nintendo">Nintendo</a>
+</div>
 
   <%= yield %>
 

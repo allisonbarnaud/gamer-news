@@ -1,0 +1,15 @@
+<h2><%= current_user()['username'] %>'s preferences</h2>
+
+<div class="profile-info">
+    <p>E-mail: <%=user_info["email"]%></p>
+    <p>Username: <%=user_info["username"]%></p>
+    <p>News feed filter: <%=user_preferences["filter_term"]%></p>
+    <p>Number of results per page: <%=user_preferences["results_number"]%></p>
+</div>
+
+<a class="edit" href="/my_page/<%= current_user()['id'] %>/edit">edit profile</a>
+
+<form class="delete" action="/my_page/<%= user_info["id"] %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>delete my account</button>
+</form>
