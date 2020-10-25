@@ -9,7 +9,11 @@ end
 
 def find_user_by_email(email)
     results = run_sql("select * from users where email = $1;", [email])
-    return results[0]
+    if results.none?
+        redirect '/login'
+    else
+        return results[0]
+    end
 end
 
 def find_user_by_id(id)

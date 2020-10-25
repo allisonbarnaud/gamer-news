@@ -130,13 +130,11 @@ img {
 }
 
 .inputbox {
-    display: inline-block;
-    margin: 50px 50px 0 0;
+    display: block;
 }
 
 .form {
-    margin-top: 50px;
-    text-align: center;
+    margin: 2% 45%;
 }
 
 h3 {
