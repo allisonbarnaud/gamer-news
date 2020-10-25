@@ -3,7 +3,7 @@
 <% data["articles"].each do |articles| %>
     <div class="articles">
     <a href="<%= articles["url"] %>"><img src="<%= articles["urlToImage"] %>"></a>
-    <h2><%= articles["title"] %></h2>
+    <h3><%= articles["title"] %></h3>
     <p>description: <%= articles["description"] %></p>
     <p>From <%=articles["source"]["name"]%></p>
     

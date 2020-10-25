@@ -23,9 +23,9 @@ end
 get '/' do
   if session["user_id"] != nil
 
-    sql = "SELECT * FROM preferences WHERE user_id = #{session[:user_id]};"
+    sql = "SELECT * FROM preferences WHERE user_id = $1;"
 
-    preferences = run_sql(sql)[0]
+    preferences = run_sql(sql, [session[:user_id]])[0]
 
     if preferences["filter_term"] == ''
       search_term = 'games'
@@ -80,7 +80,7 @@ get '/login' do
 end
 
 post '/login' do
-  user = find_user_by_email(params['email'])
+  user = find_user_by_email(params["email"])
 
   if BCrypt::Password.new(user['password_digest']).==(params['password'])
 
@@ -105,12 +105,12 @@ post '/signup' do
     email = params["email"]
     password_digest = BCrypt::Password.create(params["password"])
     username = params["username"]
-    sql = "INSERT INTO users (email, username, password_digest) VALUES ('#{email}', '#{username}', '#{password_digest}');"
-    run_sql(sql)
-    sql2 = "SELECT id FROM users where email = '#{email}'"
-    user_id = run_sql(sql2)[0]["id"]
-    sql3 = "INSERT INTO preferences (user_id) VALUES (#{user_id});"
-    run_sql(sql3)
+    sql = "INSERT INTO users (email, username, password_digest) VALUES ($1, $2, $3);"
+    run_sql(sql, [email, username, password_digest])
+    sql2 = "SELECT id FROM users where email = $1;"
+    user_id = run_sql(sql2, [email])[0]["id"]
+    sql3 = "INSERT INTO preferences (user_id) VALUES ($1);"
+    run_sql(sql3, [user_id])
 
     redirect '/login'
   else
@@ -130,11 +130,11 @@ get '/my_page/:id/edit' do
 end
 
 get '/my_page/:id' do
-  sql = "SELECT * FROM users WHERE id = #{params["id"]};"
-  sql2 = "SELECT * FROM preferences WHERE user_id = #{params["id"]}"
+  sql = "SELECT * FROM users WHERE id = $1;"
+  sql2 = "SELECT * FROM preferences WHERE user_id = $1;"
 
-  user_info = run_sql(sql)[0]
-  user_preferences = run_sql(sql2)[0]
+  user_info = run_sql(sql, [params["id"]])[0]
+  user_preferences = run_sql(sql2, [params["id"]])[0]
 
   erb :my_page, locals: {user_info: user_info, user_preferences: user_preferences}
 end
@@ -142,11 +142,11 @@ end
 
 
 patch '/my_page/:id' do
-  sql = "UPDATE users SET username = '#{params["username"]}', email = '#{params["email"]}' WHERE id = #{params["id"]};"
-  sql2 = "UPDATE preferences SET filter_term = '#{params["filter_term"]}', results_number = #{params["results_number"]} WHERE user_id = #{params["id"]};"
+  sql = "UPDATE users SET username = $1, email = $2 WHERE id = $3;"
+  sql2 = "UPDATE preferences SET filter_term = $1, results_number = $2 WHERE user_id = $3;"
 
-  run_sql(sql)
-  run_sql(sql2)
+  run_sql(sql, [params["username"], params["email"], params["id"]])
+  run_sql(sql2, [params["filter_term"], params["results_number"], params["id"]])
 
   redirect "/my_page/#{params["id"]}"
 end
@@ -167,10 +167,10 @@ end
 
 delete '/my_page/:id' do
   
-  sql = "delete from users where id = #{params["id"]};"
+  sql = "delete from users where id = $1;"
 
-  run_sql(sql)
-
+  run_sql(sql, [params["id"]])
+  session[:user_id] = nil
   redirect "/"
 end
 

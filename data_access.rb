@@ -7,14 +7,8 @@ def run_sql(sql, params = [])
     return results
 end
 
-# def run_sql()
-#     db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'enter database name here'})
-#     result = db.exec(sql)
-#     db.close
-# end
-
 def find_user_by_email(email)
-    results = run_sql("select * from users where email = '#{email}';")
+    results = run_sql("select * from users where email = $1;", [email])
     return results[0]
 end
 
