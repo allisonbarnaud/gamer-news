@@ -1,6 +1,6 @@
 # G-NEWS: NEWS FOR ALL THINGS GAMING
 
-![alt text](g-news screenshot.png)
+![alt text](public/images/g-news-screenshot.png)
 
 ### CLICK HERE: https://g-news.herokuapp.com/
 
